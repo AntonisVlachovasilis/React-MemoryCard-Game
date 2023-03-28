@@ -1,9 +1,11 @@
 import "./App.css";
 import data from "./data";
 import Cards from "./Cards.js";
+import audioClip from "./audio/metal.mp3";
 import { useState, useEffect } from "react";
 
 function MemoryCard() {
+  const [audio] = useState(new Audio(audioClip));
   const [cards, setCards] = useState(data);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
@@ -44,10 +46,14 @@ function MemoryCard() {
             setCards={setCards}
             cards={cards}
             handleHighScore={handleHighScore}
+            audio={audio}
           />
         </div>
         <div className="loser">
           <h1>{message}</h1>
+          <audio>
+            <source src={audioClip} type="audio/mp3" />
+          </audio>
         </div>
       </div>
     </div>

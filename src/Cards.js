@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useState, useEffect } from "react";
 
 const Cards = ({
@@ -8,8 +9,12 @@ const Cards = ({
   cards,
   setCards,
   handleHighScore,
+  audio,
 }) => {
   const [deck, setDeck] = useState([]);
+  const handleClick = () => {
+    audio.play();
+  };
 
   useEffect(() => {
     let randomInt = [];
@@ -48,6 +53,7 @@ const Cards = ({
                     return card;
                   })
                 );
+                handleClick();
                 setMessage("");
               } else {
                 setScore(0);
