@@ -14,12 +14,10 @@ const Cards = ({
   useEffect(() => {
     let randomInt = [];
     const rep = () => {
-      for (let i = 0; i < 4; i++) {
+      while (randomInt.length < 4) {
         const numGen = Math.floor(Math.random() * 29);
-        if (!randomInt.includes(numGen)) {
+        if (randomInt.indexOf(numGen) === -1) {
           randomInt.push(numGen);
-        } else {
-          randomInt.push(numGen + 1);
         }
       }
       return randomInt;
@@ -32,6 +30,7 @@ const Cards = ({
   return (
     <div className="card">
       {deck.map((int) => {
+        console.log(cards[int]);
         return (
           <img
             className="rand-card"
@@ -52,6 +51,7 @@ const Cards = ({
               } else {
                 setScore(0);
                 handleHighScore(score);
+                setMessage("Game Over");
               }
             }}
           />

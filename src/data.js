@@ -80,7 +80,7 @@ const data = [
     clicked: false,
   },
   {
-    id: 111,
+    id: 11,
     imgDir: image11,
     clicked: false,
   },
