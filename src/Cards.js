@@ -48,6 +48,7 @@ const Cards = ({
                     return card;
                   })
                 );
+                setMessage("");
               } else {
                 setScore(0);
                 handleHighScore(score);
