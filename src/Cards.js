@@ -12,7 +12,7 @@ const Cards = ({
   audio,
 }) => {
   const [deck, setDeck] = useState([]);
-  const handleClick = () => {
+  const handleAudio = () => {
     audio.play();
   };
 
@@ -53,7 +53,7 @@ const Cards = ({
                     return card;
                   })
                 );
-                handleClick();
+                handleAudio();
                 setMessage("");
               } else {
                 setScore(0);
