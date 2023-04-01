@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 const Cards = ({
   score,
   setScore,
-  setMessage,
   cards,
   setCards,
   handleHighScore,
   audio,
+  setIsGameOver,
 }) => {
   const [deck, setDeck] = useState([]);
   const handleAudio = () => {
@@ -54,11 +54,10 @@ const Cards = ({
                   })
                 );
                 handleAudio();
-                setMessage("");
               } else {
                 setScore(0);
                 handleHighScore(score);
-                setMessage("Game Over");
+                setIsGameOver(true);
               }
             }}
           />

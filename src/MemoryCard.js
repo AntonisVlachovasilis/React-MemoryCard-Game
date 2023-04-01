@@ -9,7 +9,7 @@ function MemoryCard() {
   const [cards, setCards] = useState(data);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-  const [message, setMessage] = useState("");
+  const [isGameOver, setIsGameOver] = useState(false);
   useEffect(() => {
     if (score === 0) {
       setCards(data);
@@ -20,6 +20,7 @@ function MemoryCard() {
       setHighScore(currentScore);
     }
   };
+  console.log(isGameOver);
   return (
     <div className="App">
       <div className="app-body">
@@ -39,18 +40,30 @@ function MemoryCard() {
           </div>
         </div>
         <div className="card-container">
-          <Cards
-            score={score}
-            setScore={setScore}
-            setMessage={setMessage}
-            setCards={setCards}
-            cards={cards}
-            handleHighScore={handleHighScore}
-            audio={audio}
-          />
+          {isGameOver ? (
+            <div className="over-modal">
+              Game Over
+              <button
+                onClick={() => {
+                  setIsGameOver(false);
+                }}
+              >
+                restart
+              </button>
+            </div>
+          ) : (
+            <Cards
+              setIsGameOver={setIsGameOver}
+              score={score}
+              setScore={setScore}
+              setCards={setCards}
+              cards={cards}
+              handleHighScore={handleHighScore}
+              audio={audio}
+            />
+          )}
         </div>
         <div className="loser">
-          <h1>{message}</h1>
           <audio>
             <source src={audioClip} type="audio/mp3" />
           </audio>

@@ -93,3 +93,29 @@ img.rand-card {
 .loser h1 {
   position: relative;
 }
+.card-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  height: 50%;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+.over-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+}
+.over-modal button {
+  width: 50%;
+  margin: 0 auto;
+  height: 60px;
+  font-size: 30px;
+  background-color: transparent;
+  cursor: pointer;
+}
